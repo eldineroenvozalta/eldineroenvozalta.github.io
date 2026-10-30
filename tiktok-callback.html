@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Conectando con TikTok · El Dinero en Voz Alta</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main style="max-width:560px;margin:4rem auto;padding:0 1rem;text-align:center">
+  <h1>Conectando con TikTok…</h1>
+  <p id="msg">Te llevamos de vuelta al panel de publicación.</p>
+</main>
+<script>
+  // TikTok devuelve aquí el código de autorización. Lo pasamos tal cual al panel local.
+  var q = window.location.search;
+  if (q.indexOf("code=") !== -1 || q.indexOf("error=") !== -1) {
+    window.location.replace("http://localhost:8766/tiktok/callback" + q);
+  } else {
+    document.getElementById("msg").textContent = "Esta página solo se usa al conectar la cuenta de TikTok del canal.";
+  }
+</script>
+</body>
+</html>
